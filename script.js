@@ -18,9 +18,9 @@ $(document).ready(function () {
         
         $(".goal-box").each( function(){
             var checkHour = parseInt($(this).attr('id'))
-            console.log(this)
-            console.log(checkHour)
-            console.log(currentHour)
+            // console.log(this)
+            // console.log(checkHour)
+            // console.log(currentHour)
             if (checkHour < currentHour) {
                 $(this).removeClass(['present', 'future']).addClass('past')
             }
@@ -33,8 +33,25 @@ $(document).ready(function () {
         })
     }
 
+    // When a goal field is clicked, a text box appears that can be typed into
+    $(".goal").click(function() {
+        
+        // Set the text 
+        var text = $(this).text()
+        // console.log(this)
 
-    // When clicked, an event can be typed
+        // Creates a text input form
+        var input = $('<textarea>').addClass('form-control').val(text)
+        // console.log(text)
+        // console.log(input)
+
+
+        // Changes the clicked field's html to the input 
+        $(this).html(input)
+        // Allows the new text box to be the focus for keyboard input when created
+        input.trigger('focus')
+
+    })
     // Save button can be clicked to save the event on that time block
     // When save is clicked, the text is saved to local storage
     // When the page is refreshed the local storage persists
