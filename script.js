@@ -13,8 +13,6 @@ $(document).ready(function () {
  
 
 
-    // Display blocks for standard business hours
-    // 1 per hour
     // Time blocks are color coded based on past, present, future
     // When clicked, an event can be typed
     // Save button can be clicked to save the event on that time block
