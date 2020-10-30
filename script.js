@@ -45,13 +45,16 @@ $(document).ready(function () {
     // Save button(.saveBtn) can be clicked to save the event on that time block
         $('.saveBtn').click(function() {
             
-            // prints the value within the text next to the save button
-            console.log($(this).siblings('textarea').val())
-            // prints the id of the parent time block
-            console.log($(this).parent().attr('id'))
-            // [1]
-            //when save is clicked, change the corresponding value in the array
-            // then run the create local storage function    
+            // Grabs the value within the textarea next to the save button
+            var userInput = $(this).siblings('textarea').val().trim()
+            // Grabs the id of the parent time block
+            var rowId = $(this).parent().attr('id')
+
+            // Uses the calculateRow function to change the id to the time, and adjust the value at that index
+            goalList[calculateRow(rowId)] = userInput
+
+            // Then recreate the localstorage to save the new goal
+            createLocalStorage()    
         })
     // When save is clicked, the text is saved to local storage
     // When the page is refreshed the local storage persists
@@ -96,5 +99,29 @@ $(document).ready(function () {
     // function to initialize local storage for the starting array
     function createLocalStorage() {
         localStorage.setItem('goalList', JSON.stringify(goalList))
+    }
+
+    // Gets passed in a row id and returns the time based on the value
+    function calculateRow(row) {
+        switch(row) {
+            case '9':
+                return '9:00';
+            case '10':
+                return '10:00';
+            case '11':
+                return '11:00';
+            case '12':
+                return '12:00';
+            case '13':
+                return '1:00';
+            case '14':
+                return '2:00';
+            case '15':
+                return '3:00';
+            case '16':
+                return '4:00';
+            case '17':
+                return '5:00';
+        }
     }
 })
