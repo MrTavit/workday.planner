@@ -10,4 +10,4 @@ By clicking or tabbing down to the field next to the time, a text box will be av
 
 When the page is refreshed the text that the user saved will reappear within the corresponding box.
 
- ![Website Gif](./assets/workday.planner.GIF)
+ ![Website Gif](./assets/workday.planner.gif)
